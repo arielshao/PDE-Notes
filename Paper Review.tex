@@ -1,0 +1,661 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+%\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{sectsty} % Allows customizing section commands
+\usepackage{changes}
+\usepackage{amsmath,mathtools}
+\usepackage{cancel}
+\setdeletedmarkup{\cancel{#1}}
+
+
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\newtheorem{theorem}{Theorem}
+ \newtheorem{definition}{Definition}
+ \newtheorem{example}{Example}
+  \newtheorem{exercise}{Exercise}
+  \newtheorem{remark}{Remark} 
+   \newtheorem{proposition}{Proposition}
+   \newtheorem{lemma}{Lemma}
+  \numberwithin{exercise}{section}
+  
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+%
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Paper Review:  Regularity of Minimizers of Semilinear Elliptic Problems Up to Dimension 4 by Xavier Cabr\'{e}  \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+\date{}
+\author{Aili Shao} 
+
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section{ Introduction}
+
+Let $f\colon\mathbb{R}\to\mathbb{R}$ be a $C^{\infty}$ function and $F$ a primitive of $f$, i.e. $F'=f$. Let $\Omega\subset \mathbb{R}^n$ be a bounded, smooth domain.
+
+Consider the semilinear PDE 
+\begin{equation}\label{pde}       
+\begin{cases} -\Delta u=f(u)\:\: \mbox{ in } \Omega,\\
+u=0  \:\:\:\:\:\: \:\:\:\:\:\:\:\mbox{  on  }      \partial \Omega.
+
+\end{cases}
+\end{equation}
+Its energy functional is 
+\begin{equation}\label{fun}
+E(u)=\int_{\Omega} \frac{1}{2} |\nabla u|^2-F(u)dx.
+\end{equation}
+\begin{itemize}
+
+
+\item A function $u\in C_{0}^1(\bar{\Omega})$ is a local minimizer of (\ref{fun}) if there exists $\varepsilon>0$ such that 
+$$E(u)\leq E(u+\xi)$$
+for every $\xi\in  C_{0}^1(\bar{\Omega})$ such that $\|\xi\|_{C_1(\bar{\Omega})}\leq \varepsilon.$
+\item A classical solution $u\in C^2(\bar{\Omega})$ of (\ref{pde}) is \emph{semi-stable} if
+\begin{equation}\label{stable}
+Q_{u}[\xi]:=\int_{\Omega} |\nabla \xi|^2-f'(u)\xi^2 dx\geq 0 \: \:\forall  \:\xi \in C_{0}^1(\bar{\Omega})
+\end{equation}
+\end{itemize}
+\begin{remark}
+\begin{itemize}
+\item By elliptic regularity, every local minimizer $u$ is a $C^\infty$ classical solution to ( \ref{pde}).
+\item The semistability of a solution $u$ is equivalent to the condition $\lambda_1\geq 0$ where $\lambda_1$ is the first Dirichlet eigenvalue of the linearized operator $-\Delta -f'(u)$  as
+$$\lambda_1=\frac{\int_{\Omega}|\nabla u|^2-f'(u) u^2 dx}{\int_{\Omega} u^2}.$$
+\item A local minimizer is always semi-stable. Note that is $u$ is a minimizer, then 
+$$\frac{d^2}{dt^2}\Big |_{t=0} E[u+tv]\geq 0.$$
+
+$$\frac{d}{dt} E[u+tv]=\int_{\Omega} (\nabla u +t\nabla v) \nabla v)- f(u+tv)v$$
+$$\frac{d^2}{dt^2} E[u+tv]=\int_{\Omega} |\nabla v|^2-f'(u+tv)v^2$$
+
+$$\frac{d^2}{dt^2}\Big |_{t=0} E[u+tv]=\int_{\Omega} |\nabla v|^2-f'(u)v^2\geq 0.$$
+\end{itemize}
+
+\end{remark}
+\section{Main Estimate and Proof}
+\begin{theorem}
+Let $f$ be any $C^\infty$ function and $\Omega\subset \mathbb{R}^n$ be any smooth and bounded domain. Assume $2\leq n\leq 4.$ Let $u\in C_{0}^1(\bar{\Omega})$ with $u>0$ in $\Omega$ be a local minimizer of (
+\ref{fun}) or more generally a positive classical semi-stable solution of (\ref{pde}). Then for every $t>0$,
+\begin{equation}\label{main}
+\|u\|_{L^\infty(\Omega)}\leq t+\frac{C}{t}|\Omega|^{\frac{4-n}{2n}} \left(\int_{\{u<t\}} |\nabla u|^4 dx \right) ^{\frac{1}{2}},
+ \end{equation}
+ where $C$ is a universal constant (in particular, independent of $f,\Omega$ and $u$).
+ \end{theorem}
+ 
+ Key Ingredients Needed to Prove Theorem 1.
+ \begin{itemize}
+ \item  \emph{Sard Lemma} (proved in Aili's 3rd Year Extended Essay)
+ 
+ Let $\Omega$ be an open subset of $\mathbb{R}^n$ and $u\colon \Omega\to\mathbb{R}^n$ be $C^1(\Omega)$, then the measure of  the set of critical of $u$ values is zero. In particular, the set of regular values of $u$ is dense in $\mathbb{R}^n.$
+ 
+ 
+ \item \emph{Coarea Formula} (Proof involves Fubini Theorem)
+ 
+ Let $\Omega$ be an open set in $\mathbb{R}^n$. and $ u$ is a real-valued Lipschitz function on $\Omega$. Then for $g\in L^1(\Omega)$, 
+ $$\int_{\Omega} g(x) |\nabla u(x)| dx=\int_{0}^T \int_{\Gamma_s} g(x) dV_{s} ds$$
+ where $T:=\max_{\Omega} u=\|u\|_{L^{\infty}(\Omega)}$, $\Gamma_s:=\{x\in\Omega \colon u(x)=s\}.$
+ 
+ \item \emph{Simon Michael Sobolev Inequality}
+ 
+ Let $M\subset \mathbb{R}^{m+1}$ be $C^{\infty}$ immersed, $m$-dimensional compact hypersurface without boundary. Then for every $p\in [1,m)$, there exists a constant $C=C(m,p)$ such that for every $C^\infty$ function $v\colon M\to\mathbb{R}$,
+ \begin{equation}\label{sobolev}
+ \left(\int_{M} |v|^{p^\star} dV\right) ^{\frac{1}{p^{\star}}}\leq C(m,p) \left(\int_{M}|\nabla v|^p+|Hv|^p dV\right) ^{\frac{1}{p}} , 
+ \end{equation}
+ 
+ where $H$ is the mean curvature of $M$ and $p^\star=\frac{mp}{m-p}.$
+ \item  \emph{Curvature Inequality}
+
+$|H|\leq |A|$ where $H$ is the mean curvature of a surface $M$ defined as  $H:=\frac{1}{n-1}\sum_{1}^{n-1} k_{l}$ while $A:=(\sum_{1}^{n-1} k_{l}^2)^{1/2}$
+ \item \emph{Sternberg and Zumbrun Inequality} (proved in class)
+ 
+ Let $\Omega\subset \mathbb{R}^n$ be a smooth, bounded domain and $u$ is a smooth, positive , semi-stable solution of (\ref{pde}). Then for every Lipschitz continuous function $\eta$ in $\bar{\Omega}$ with $\eta\mid_{\partial\Omega}=0,$
+\begin{equation} \label{SZ}
+\int_{\Omega\cap \{| \nabla u|>0\} } \left(|\nabla_T | \nabla u| |^2+|A|^2 |\nabla u|^2\right)\eta^2 dx \leq \int_{\Omega} | \nabla u|^2 | \nabla \eta |^2 dx,
+ \end{equation}
+ where $\nabla_T$ denotes the tangential or Riemannian gradient along a level set of $u$ and $A$ is defined as above.
+ \begin{proof}
+ Note that 
+
+$$ Q_{u}=\int_{\Omega} |\nabla \xi|
+^2 -f'(u)\xi^2 dx\geq 0 $$
+holds for every Lipschitz function $\xi$ in $\bar{\Omega}$ with $\xi\mid_{\partial \Omega}=0$ as $C_{0}^1(\bar{\Omega})$ is dense in this space. Take $\xi=c\eta$ in the above inequality where $c$ is a smooth function while $\eta$ is Lipschitz continuous in $\bar{\Omega}$ and $\eta\mid_{\partial \Omega}=0.$
+\begin{align*}
+Q_{u}[c\eta]=&\int_{\Omega} |\nabla (c\cdot\eta) |^2-f'(u) c^2 \eta^2 dx\\
+{}=&\int_{\Omega} |\nabla c\cdot\eta +c\cdot \nabla \eta|^2-f'(u) c^2 \eta^2 dx\\
+{}=&\int_{\Omega} c^2|\nabla \eta|^2 +2 \int_{\Omega} \nabla c\cdot c \nabla \eta \cdot \eta +\int_{\Omega}\eta^2 |\nabla c|^2- \int_{\Omega} f'(u) c^2\eta^2 dx\\
+{}=&\int_{\Omega}  c^2  | \nabla \eta|^2 +\deleted{ \int_{\Omega}\nabla(\eta^2\nabla c\cdot c) }-\int_{\Omega} \eta^2 \Delta c\cdot c-\int_{\Omega} f'(u) c^2 \eta^2 dx\\
+{}=&\int_{\Omega} c^2 |\nabla \eta|^2-(\Delta c+f'(u) c)c \eta^2 dx.\\
+\end{align*}
+Thus the semi-stability condition gives
+\begin{equation}\label{semistability}
+Q_{u}[c\eta]=\int_{\Omega} c^2 |\nabla \eta|^2-(\Delta c+f'(u) c)c \eta^2 dx\geq 0.
+\end{equation}
+Take $c=\sqrt{|\nabla u|^2 +\varepsilon^2}$ for a give $\varepsilon>0.$ $c$ is smooth.
+
+$$\Delta u+f(u)=0 \mbox{ in } \Omega.$$
+$$\Delta u_j+f'(u)u_j=0 \mbox{ in } \Omega.$$
+$$c_j=\frac{1}{2}\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \cdot 2 \sum_{i=1}^n u_i u_{ij}=\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \cdot\sum_{i=1}^n u_i u_{ij}.$$
+\begin{align*}
+c_{j}j=&\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \cdot\sum_{i=1}^n  u_{ij}^2.+\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \cdot\sum_{i=1}^n u_i u_{ijj}\\
+{}+&\frac{1}{(\sqrt{|\nabla u|^2 +\varepsilon^2})^3} \cdot(-\frac{1}{2})\sum_{i=1}^n 2u_i u_{ij} \cdot \sum_{i=1}^n u_i u_{ij}
+\end{align*}
+
+\begin{align*}
+\sum_{j=1}^n c_{jj}=& \frac{1}{|\nabla u|^2 +\varepsilon^2}\left[ \sum_{i,j}^n u_{ij}^2 \sqrt{|\nabla u|^2 +\varepsilon^2} +\sum_{i=1}^n u_i \Delta u_i \sqrt{|\nabla u|^2 +\varepsilon^2}\right] \\
+{}& -\frac{1}{|\nabla u|^2 +\varepsilon^2}\left[ \sum_{j=1}^n (\sum_{i=1}^n u_{ij} u_i)^2 )\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right]
+\end{align*}
+
+That is,
+\begin{align*}
+\Delta c=&\frac{1}{|\nabla u|^2 +\varepsilon^2} \left[-f'(u)|\nabla u|^2 \sqrt{|\nabla u|^2 +\varepsilon^2}+\sum_{i,j}^n u_{ij}^2\sqrt{|\nabla u|^2 +\varepsilon^2} \right]\\
+{}-&\frac{1}{|\nabla u|^2 +\varepsilon^2} \left[ (\sum_{i=1}^n u_{ij} u_i)^2 )\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right].
+\end{align*}
+Thus, 
+\begin{align*}
+\Delta c+f'(u) c=& f'(u) \sqrt{|\nabla u|^2 +\varepsilon^2}-\frac{f'(u)|\nabla u|^2}{sqrt{|\nabla u|^2 +\varepsilon^2}} \\
+{}+& \frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}}\left[\sum_{i,j}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^n u_{ij} \frac{u_i}{\sqrt{|\nabla u|^2 +\varepsilon^2}}\right)^2 \right]\\
+{}=& f'(u)\frac{\varepsilon^2}{\sqrt{|\nabla u|^2 +\varepsilon^2}}+\frac{1}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \left[\sum_{ij} ^nu_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right)^2 \right]\\
+\end{align*}
+Using the semi-stable inequality (\ref{semistability}), we deduce 
+\begin{align*}
+\int_{\Omega}(|\nabla u|^2 +\varepsilon^2)|\nabla \eta|^2dx =& \int_{\Omega} c^2 |\nabla \eta|^2 dx\\
+{}\geq & \int_{\Omega} (\Delta c+f'(u) c) c\eta^2) dx\\
+{}=&\int_{\Omega}f'(u)\varepsilon^2 \eta^2 dx+\int_{\Omega}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right)^2\right]\eta^2 dx 
+\end{align*}
+The integrand in the last integral is non-negative, so we have 
+\begin{align*}
+&\int_{\Omega}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right)^2\right]\eta^2 dx  \\
+\geq &\int_{\Omega\cap \{|\nabla u|>0\}}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{\sqrt{|\nabla u|^2 +\varepsilon^2}} \right)^2\right]\eta^2 dx \\
+\geq &\int_{\Omega\cap \{|\nabla u|>0\}}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{|\nabla u|} \right)^2\right]\eta^2 dx 
+\end{align*}
+
+Thus, 
+\begin{align*}
+\int_{\Omega}(|\nabla u|^2 +\varepsilon^2)|\nabla \eta|^2dx \geq
+&\int_{\Omega}f'(u)\varepsilon^2 \eta^2 dx+\int_{\Omega\cap \{|\nabla u|>0\}}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{|\nabla u|} \right)^2\right]\eta^2 dx 
+\end{align*}
+Letting $\varepsilon\to 0$, we have 
+\begin{align*}
+\int_{\Omega}|\nabla u|^2|\nabla \eta|^2dx \geq
+&\int_{\Omega\cap \{|\nabla u|>0\}}\left[\sum_{ij}^n u_{ij}^2-\sum_{j}^n\left(\sum_{i}^nu_{ij} \frac{u_i}{|\nabla u|} \right)^2\right]\eta^2 dx 
+\end{align*}
+It remains to show that 
+\begin{equation}\label{Aequality}
+\sum_{ij}^n u_{ij}^2-|\nabla |\nabla u||^2 =|\nabla_{T}|\nabla u||^2+|A|^2|\nabla u|^2.
+\end{equation}
+Proof of (\ref{Aequality}):
+Fix $x_0$ such that $|\nabla u(x_0)|\neq 0.$ Define $\tau_n:=\frac{\nabla u(x_0)}{|\nabla u(x_0)|}$ be the normal direction and $\tau_1, \tau_2, \cdots, \tau_{n-1}$ be the tangential directions. 
+
+\begin{align*}
+\nabla u_j =& (\nabla u_j \cdot \tau_n) \tau_n+\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)\tau_i \\
+{}=& (\nabla u_j \cdot \frac{\nabla u}{|\nabla u|})\tau_n+\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)\tau_i \\
+{}=& \frac{1}{2} (|\nabla u|)_j\frac{1}{|\nabla u|} \tau_n +\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)\tau_i \\
+{}=& (|\nabla u|)_j \tau_n +\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)\tau_i \\
+\end{align*}
+Thus $ |\nabla u_j|^2 =(|\nabla u |)_j^2 +\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)^2$.
+This implies that 
+$$\sum_{i,j=1}^n u_{ij}^2 =\sum_{j=1}^n|\nabla u_j|^2=|\nabla |\nabla u||^2 +\sum_{j=1}^n\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)^2.$$
+Now it remains to show that 
+$$\sum_{j=1}^n\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)^2=|A|^2|\nabla u|^2 +|\nabla_{T} |\nabla u||^2.$$
+Note that since $\nabla u =|\nabla u| \tau_n$, we have 
+$$\nabla u_j \tau_i=\frac{\partial}{\partial x_j} (|\nabla u| \tau_n)\tau_i =|\nabla u|\tau_{n.j} \tau_i$$
+where $\tau_{n,j}=\frac{\partial}{\partial x_j} (\tau_n).$
+Therefore, 
+\begin{align*}
+\sum_{j=1}^n\sum_{i=1}^{n-1} (\nabla u_j \cdot \tau_i)^2=& |\nabla u|^2 \sum_{j=1}^n \sum_{i=1}^{n-1} (\tau_{n,j} \tau_i)^2\\
+{}=& |\nabla u|^2 \sum_{j=1}^{n-1} \sum_{i=1}^{n-1} (\tau_{n,j} \tau_i)^2+|\nabla u|^2 \sum_{i=1}^{n-1} (\tau_{n,n} \tau_i)^2\\
+{}=&|\nabla u|^2 \sum_{i,j=1}^(n-1) h_{ij}^2 +|\nabla_{T} |\nabla u||^2\\
+{}=&|A|^2|\nabla u|^2 +|\nabla_{T} |\nabla u||^2.
+\end{align*}
+ \end{proof}
+ \item \emph{Geometric Inequality for $\Gamma_s$}
+ 
+$$|\Gamma_s|^{\frac{n-2}{n-1}}\leq C(n) \int_{\Gamma_s} |H| dV_s$$
+It  follows from the \emph{Simon Michael Sobolev Inequality} by taking $v\equiv 1$, $m=n-1>1=p$, $M=\Gamma_s$. This inequality also holds if $\Gamma_s$ is not connected.
+
+\item \emph{Isoperimetric Inequality}
+ $$V(s):=|\{u>s \}|\leq C(n) |\Gamma_s|^{\frac{n}{n-1}}$$
+ \end{itemize}
+
+
+Now we proceed to the proof of Theorem 1.
+
+\begin{proof}
+\begin{itemize}
+\item  \emph{Step 1: Set Up}.
+
+By elliptic regularity theory, $u\in C^{\infty }(\bar{\Omega})$. Recall that $u>0$ in $\Omega$. We define 
+$$T:=\max_{\Omega} u =\|u\|_{L^\infty(\Omega)}.$$
+
+For $s\in (0,T), \Gamma_s:=\{x\in\Omega \colon u(x) =s\}.$ 
+
+By Sard's Lemma, almost every $s\in (0,T)$ is a regular value of $u$. By definition, $|\nabla u(x)|>0$ for all $x\in \Gamma_s.$ In particular, if $s$ is a regular value, $\Gamma_s$ is a $C^{\infty}$-immersed compact hypersurface of $\mathbb{R}^n$ without boundary. ( Later we will apply the Simon Michael Sobolev inequality with $M=\Gamma_s$. Note that $\Gamma_s$ could have a finite number of connected components, the Simon Michael Sobolev inequality still holds. )
+\item  \emph{Step 2: Apply Semi-stability Condition and Sternberg  Zumbrun Inequality}.
+
+Since $u$ is a semi-stable solution,  we  can apply the Sternberg Zumbrun inequality.
+Take $$\eta (x) =\varphi (u(x)) \mbox { for } x\in\Omega $$
+where $\varphi$ is a Lipschitz function on $[0,T]$ with $\varphi(0)=0.$
+
+Now the RHS of the Sternberg  Zumbrun Inequality becomes 
+\begin{align*}
+\int_{\Omega} |\nabla u|^2 |\nabla \eta|^2 dx=& \int_{\Omega} |\nabla u|^4 \varphi'(u)^2 dx\\
+{}=& \int_{0}^T \left( \int_{\Gamma_s} |\nabla u|^3 dV_s \right) \varphi'(s)^2 ds \mbox{ By Coarea Formula}\\
+\end{align*}
+The integral in $ds$ is over the regular values of $u$ whose complement is of zero measure in $(0,T).$
+
+For the LHS of the inequality, we integrate ove $\Omega\cap\{|\nabla u|>\delta \}$ for a given $\delta >0$, then the inequality still holds. That is,\
+\begin{align*}
+\int_{0}^T \left( \int_{\Gamma_s} |\nabla u|^3 dV_s \right) \varphi'(s)^2 ds \geq & \int_{\Omega\cap\{|\nabla u|>\delta \}} \left( |\nabla_{T}|\nabla u||^2+|A|^2|\nabla u|^2 \right) \varphi(u)^2 dx\\
+{}=&\int_{0}^T \left(\int_{\Gamma_s\cap\{|\nabla u|>\delta\}} \frac{1}{|\nabla u|} \left( |\nabla_{T}|\nabla u||^2+|A|^2|\nabla u|^2 \right) dV_s \right) \varphi(s)^2 ds\\
+{}=&\int_{0}^T \left(\int_{\Gamma_s\cap\{|\nabla u|>\delta\} } 4\left( |\nabla_{T}|\nabla u|^{1/2}|^2+(|A||\nabla u|^{1/2})^2 \right) dV_s \right) \varphi(s)^2 ds\\
+\end{align*}
+Letting $\delta\to 0$, by Monotone Convergence Theorem, we have 
+\begin{equation}\label{hequation}
+\int_{0}^T h_1(s) \varphi(s)^2 ds \leq \int_{0}^T h_2(s) \varphi'(s)^2 ds
+\end{equation}
+for all Lipschitz functions $\varphi\colon [0,T]\to \mathbb{R}$ with $\varphi(0)=0$ 
+where 
+$$h_1(s):=\int_{\Gamma_s}4\left( |\nabla_{T}|\nabla u|^{1/2}|^2+(|A||\nabla u|^{1/2})^2 \right) dV_s $$
+and 
+$$h_2(s):=\int_{\Gamma_s} |\nabla u|^3 dV_s$$
+for every regular value  $s$ of $u$.
+
+
+\item \emph{Step 3: Apply the Sobolev Inequality}
+
+
+In this step, we apply the Simon Michael Sobolev inequality to argue the reason for restricting $n\leq 4.$
+Take $M=\Gamma_s, p=2 <m =n-1,  v=|\nabla u|^{1/2}$, then 
+$$\left(\int_{\Gamma_s} |\nabla u|^{\frac{n-1}{n-3}} dV_s \right) ^{\frac{n-1}{n-3}}\leq C(n)\int_{\Gamma_s}|\nabla_{T}|\nabla u|^{1/2}|^2+(|H||\nabla u|^{1/2})^2 dV_s.$$
+Then 
+\begin{equation}\label{h1}
+\left(\int_{\Gamma_s} |\nabla u|^{\frac{n-1}{n-3}} dV_s \right) ^{\frac{n-1}{n-3}}\leq c(n) h_1(s)
+\end{equation}
+as $|H|\leq |A|$.
+Combining this with (\ref{hequation}) , we have 
+\begin{equation}
+\int_{0}^T \left(\int_{\Gamma_s} |\nabla u|^{\frac{n-1}{n-3}} dV_s \right) ^{\frac{n-1}{n-3}} \varphi(s)^2 ds \leq C(n) \int_{0}^T \left( \int_{\Gamma_s} |\nabla u|^3 dV_s \right) \varphi'(s)^2 ds
+\end{equation}
+for all Lipschitz functions $\varphi$ in $[0,T]$ with $\varphi(0)=0.$ So we need $\frac{n-1}{n-3}\geq 3.$ That is $n\leq 4.$
+
+Now we define 
+$$B_t:=\frac{1}{t^2}\int_{\{u<t\}} |\nabla u|^4 dx =\frac{1}{t^2}\int_{0}^t h_2(s) ds$$
+where the last equality follows from the Coarea Formula.
+\item \emph{Step 4: Proof for $n=4$}
+
+When $n=4, \frac{n-1}{n-3}=3.$ Then (\ref{h1}) gives 
+\begin{equation}\label{h1h2}
+h_2^{1/3}\leq Ch_1  \mbox{ a.e.  in } (0,T) 
+\end{equation}
+where $C$ is a universal constant.
+For every regular value $s$ of $u$, we have $0<h_2(s)$, $h_1(s)<\infty$, so $\frac{h_1}{h_2}\in (0,\infty)$ a.e.  in $(0,T)$.
+
+$$g_k(s):=\min\{ k,\frac{h_1(s)}{h_2(s)} \}$$
+for regular values $s$ and for a postive integer $k$, we have that $g_k\in L^\infty (0,T)$ and  $g_k(s) \to \frac{h_1(s)}{h_2(s)}\in (0, \infty) \mbox{ as } k\to
+\infty.$ for a.e. $s\in(0,T).$
+Since $g_k\in L^\infty (0,T)$,
+$$\varphi_k(s):=\begin{cases} s/t   & \mbox{ if } s\leq t; \\
+\exp\left(\frac{1}{\sqrt{2}}\int_{t}^s \sqrt{g_k(\tau)} d\tau\right)   &\mbox{ if } t\leq s\leq T\\
+\end{cases}$$
+is well defined and Lipschitz continuous in $[0,T]$ with $ \varphi_k(0)=0.$
+
+Since $h_2(\varphi_{k}^{'})^2=h_2 \frac{1}{2} g_k \varphi_k^2\leq \frac{1}{2}h_1\varphi_k^2$ in $(t,T)$, by inequality (\ref{hequation}) ($\varphi=\varphi_k$), we have 
+\begin{align*}
+\int_{t}^T h_1 \varphi_k^2 ds \leq & \int_{t}^T h_2 (\varphi_{k}^{'})^2 ds+ \int_{0}^t h_2 (\varphi_{k}^{'})^2 ds\\
+{}\leq &\frac{1}{2}\int_{t}^T h_1 \varphi_k^2 ds+\frac{1}{t^2} \int_{0}^t h_2 ds\\
+\end{align*}
+Thus, 
+\begin{align*}
+\int_{t}^T h_1 \varphi_k^2 ds \leq & \frac{2}{t^2}\int_{0}^t h_2 ds\\
+{}=& \frac{2}{t^2}\int_{\{u<t\}} |\nabla u|^4 dx\\
+{}=& 2B_t
+\end{align*}
+Note that we need to establish 
+$$T-t\leq  C B_t^{1/2}.$$
+\begin{align*}
+T-t=& \int_{t}^T ds\\
+{}=& \sup _{k\geq 1} \int_{t}^T \sqrt[4]{\frac{h_2}{h_1}g_k} ds\\
+{}=&\int_{t}^T (\sqrt{h_1} \varphi_k) (\sqrt[4]{\frac{h_2g_k}{h_1^3}} \frac{1}{\varphi_k})ds\\
+{}\leq& (2B_t)^{1/2}  \left[\int_{t}^T (\sqrt{\frac{h_2 g_k}{h_1^3} }\frac{1}{\varphi_k^2})ds\right]^{1/2}.\\
+{}\leq & (2B_t)^{1/2} \left[ C\int_{t}^T \sqrt{g_k}\frac{1}{\varphi_k^2} ds \right]^{1/2}
+\end{align*}
+since  $h_2\leq Ch_1^3.$
+Finally, we need to bound the integral on the RHS,
+\begin{align*}
+\int_{t}^T \sqrt{g_k}\frac{1}{\varphi_k^2} ds =& \int_{t}^T \sqrt{g_k}\frac{1}{\varphi_k^2}\frac{\varphi_{k}^{'}}{\frac{1}{\sqrt{2}}\sqrt{g_k}\varphi_k} ds\\
+{}=& \sqrt{2} \int_{t}^T \frac{\varphi_{k}^{'}}{\varphi_{k}^3} ds\\
+{}=&\frac{\sqrt{2}}{2} [\varphi_{k}^{-2}(s)]_{s=T}^{s=t} \\
+{}\leq &\frac{\sqrt{2}}{2} \varphi_{k}^{-2}(t)\\
+{}=&\frac{\sqrt{2}}{2}\\
+\end{align*}
+This implies that $ \int_{t}^T (\sqrt{h_1} \varphi_k) (\sqrt[4]{\frac{h_2g_k}{h_1^3}} \frac{1}{\varphi_k})ds\leq \sqrt{2}B_{t}^{1/2} \frac{\sqrt{2}}{2}=B_t^{1/2}.$
+That is 
+$$T-t\leq B_t^{1/2}.$$
+Thus,
+$$\|u\|_{L^{\infty}(\Omega)} \leq t +\frac{1}{t} \left(\int_{\{u<t\}} |\nabla u|^4 dx \right)^{1/2}.$$
+This completes the proof for $n=4$.
+\item \emph{Step 5: Proof for $n=2,3$}
+
+Now we consider a simple test function 
+$$\varphi(s)=\begin{cases} s/t & \mbox{ if } s\leq t;\\
+1 & \mbox{ if } s>t.\\
+\end{cases}$$
+By definition of $h_1(s)$, we have $ h_1(s) \geq \int _{\Gamma_s} |A|^2|\nabla u| dV_s.$ Inequality (\ref{hequation}) leads to 
+\begin{align*}
+\int_{t}^T\int _{\Gamma_s} |A|^2|\nabla u| dV_s ds\leq & \int_{0}^T h_1(s) \varphi(s)^2 ds\\
+{}\leq & \int_{0}^T h_2(s) (\varphi'(s))^2 ds\\
+{}=&\frac{1}{t^2} \int_{0}^t h_2(s) ds\\
+{}=& \frac{1}{t^2} \int_{\{u<t\}} |\nabla u|^4 dx\\
+{}=& B_t
+\end{align*}
+This equality holds for ecery dimension $n$. It is at the end of the proof that we will need to assume $n\leq 3.$
+Now we use the geometric inequality for $\Gamma_s$,
+$$|\Gamma_s|^{\frac{n-2}{n-1}}\leq C(n) \int_{\Gamma_s} |H| dV_s$$
+ and the \emph{isoperimetric inequality}
+ $$V(s):=|\{u>s \}|\leq C(n) |\Gamma_s|^{\frac{n}{n-1}}$$
+ to deduce an inequality about $V(s)$.
+ \begin{align*}
+ V(s)^{\frac{n-2}{n}}\leq & C(n) |\Gamma_s|^{\frac{n-2}{n-1}}\\
+ {}\leq & C(n) \int_{\Gamma_s} |H| dV_s \\
+ {}\leq & C(n)\left[ \int_{\Gamma_s} |A|^2|\nabla u| dV_s\right]^{1/2} \left[\int_{\Gamma_s} \frac{dV_s}{|\nabla u|}\right]^{1/2}
+ \end{align*}
+ for all regular values $s$ by Cauchy Schwarz and since $|H|\leq |A|.$
+ Then 
+ \begin{align*}
+ T-t=&\int_{t}^T ds\\
+ {}\leq & \int_{t}^T C(n)\left[ \int_{\Gamma_s} |A|^2|\nabla u| dV_s\right]^{1/2}\left[\int_{\Gamma_s} V(s)^{\frac{2(2-n)}{n}} \frac{dV_s}{|\nabla u|}\right]^{1/2}\\
+ {}\leq & C(n) \left[  \int_{t}^T \int_{\Gamma_s} |A|^2|\nabla u| dV_s\right]^{1/2}\left[ \int_{t}^TV(s)^{\frac{2(2-n)}{n}} \int_{\Gamma_s} \frac{dV_s}{|\nabla u|}\right]^{1/2}\\
+ {}\leq &C(n) B_t^{1/2}  \left[ \int_{t}^TV(s)^{\frac{2(2-n)}{n}} \int_{\Gamma_s} \frac{dV_s}{|\nabla u|}\right]^{1/2}\\
+ \end{align*}
+ Finally since $V(s)=|\{u>s\}|$ is non-increasing, it is differentiable a.e. by \emph{Coarea Formula}, we have
+ $$-V(s)=\int_{\Gamma_s} \frac{dV_s}{|\nabla u|}  \mbox{ for a.e. } s\in (0,T).$$
+ 
+ In addition, for $n\leq 3.$ $V(s)$ is non-increasing in $s$ and thus it is total variation 
+ satisfies 
+ \begin{align*}
+ |\Omega|^{\frac{4-n}{n}} \geq & V(t)^{\frac{4-n}{n}}\\
+ {}=& \left[ V(s) ^{\frac{4-n}{n}}\right ]_{s=T} ^{s=t} \\
+ {}\geq & \int_{t}^T \frac{4-n}{n} V(s) ^{\frac{2(2-n)}{n}} (-V'(s)) ds\\
+ {}=&\frac{4-n}{n} \int_{t}^T V(s)^{\frac{2(2-n)}{n}} \int_{\Gamma_s} \frac{dV}{|\nabla u|} ds
+ \end{align*}
+ Thus, 
+ $$T-t\leq C(n) B_t^{1/2} |\Omega|^{\frac{4-n}{2n}} \mbox{ for } n\leq 3.$$
+ Note that this argument gives nothing for $n\geq 4$ since the integral 
+ $$\int_{t}^T V(s)^{\frac{2(2-n)}{n}} (-V'(s))ds=\int_{0}^{V(t)} \frac{dr}{r^{\frac{2(n-2)}{n}}},$$
+ is not convergent at $s=T( r=0)$ because $\frac{2(n-2)}{n}\geq 1.$
+\end{itemize}
+\end{proof}
+\section{Relevant  Results and Applications}
+\begin{theorem}
+Let $f$ be any $C^{\infty}$ function and $\Omega\subset \mathbb{R}^n$ any $C^{\infty}$ bounded domain. Assume that $2\leq n\leq 4$ and that $\Omega$ is convex in the case $n\in \{3,4\}$.
+Let $u\in L^1(\Omega)$ be a positive weak solution of (\ref{pde}) and suppose that $u$ is the $L^1(\Omega)$ limit of a sequence of classical positive semistable solutions of (\ref{pde} ). We then have the following:
+\begin{enumerate}
+\item If $f\geq 0$ in $[0,\infty),$ then $u\in L^{\infty}(\Omega).$
+\item Assume that $f(s)\geq c_1>0$ and $f(s)\geq \mu s-c_2$ for all $s\in[0,\infty)$ for some positive constants $c_1$ and $c_2$ and for $\mu >\lambda_1(\Omega)$, where $\lambda_1(\Omega)$ is the first Dirichlet eigenvalue of $-\Delta$ in $\Omega$. Then,
+$$\|u\|_{L^{\infty}(\Omega)} \leq C(\Omega,\mu, c_1,c_2,\| f\|_{L^{\infty} ([0,\bar{C}(\Omega,\mu,c_2)]}),$$
+where $C(\cdot)$ and $\bar{C}(\cdot)$ are constants depending only on the quantities within the parentheses.
+\end{enumerate}
+\end{theorem}
+Before we proceed to the proof of Theorem 2, we prove the following propositions and lemma first:
+\begin{proposition}
+Let $f$ be any $C^\infty$ function. Let $\Omega\subset \mathbb{R}^n$ be any smooth bounded domain. Assume that $2\leq n\leq 4.$
+Let $u$ be a classical semi-stable solution of (\ref{pde}). Assume that 
+\begin{equation}\label{3.1}
+u\geq c_3\mathrm{dist}(\cdot,\partial\Omega) \mbox{ in } \Omega
+\end{equation}
+and 
+\begin{equation}\label{3.2}
+\|u\|_{L^{\infty} (\Omega_{\varepsilon})}\leq c_4 \mbox{ where } \Omega_{\varepsilon}=\{x\in\Omega \colon :\mathrm{dist}(x,\partial \Omega)<\varepsilon\},
+\end{equation}
+for some positve constants $\varepsilon, c_3$ and $c_4$. Then,
+\begin{equation}\label{3.3}
+\|u\|_{L^{\infty}(\Omega)}\leq C(\Omega,\varepsilon,c_3,c_4,\|f\|_{L^{\infty}([0,c_4])}),
+\end{equation}
+where $C(\dot)$ is a constant depending only on the quantities within the parentheses.
+\begin{proof}
+By taking $\varepsilon $ smaller if necessary, we may assume that 
+$$\Omega_{\delta}=\{x\in\Omega \colon \mathrm{dist}(x,\partial \Omega)<\delta \}$$ is smooth for every $0<\delta\leq \varepsilon.$ We use Theorem 1 with  the choice 
+$$t=c_3\frac{\varepsilon}{2}.$$
+Note that if $x\in \{ u<t\}$,  by (\ref{3.1}), we have 
+$$c_3\mathrm{dist}(x,\partial \Omega) <t =c_3 \frac{\varepsilon}{2}.$$
+This implies $$\mathrm{dist}(x,\partial\Omega) <\frac{\varepsilon}{2}.$$
+Thus $\{u<t\}\subset \Omega_{\varepsilon/2}.$
+Now it suffices to bound $\|u\|_{W^{1,4} \left(\Omega_{\varepsilon/2}\right)}.$
+
+$u$ is a solution of 
+$$\begin{cases} -\Delta u =f(u) &\mbox{ in } \Omega_{\varepsilon} \\
+ u=0&  \mbox{ on } \partial\Omega.\\
+ \end{cases}.$$
+ By (\ref{3.2}), $\|u\|_{L^\infty(\Omega_{\varepsilon})} \leq c_4$ and thus the RHS of the PDE satisfies $$\|f(u)\|_{L^\infty (\Omega_{\varepsilon})} \leq \|f\|_{L^\infty( [0, c_4])}.$$
+ Note that $f\in L^\infty(\Omega_{\varepsilon} )\subset L^4(\Omega_{\varepsilon/2}),$
+ so by elliptic regularity, $\|u\|_{W^{2,4}(\Omega_{\varepsilon/2})}<\infty.$ We can thus conclude that $\|u\|_{W^{1,4}(\Omega_{\varepsilon/2})}$ is bounded.
+ \end{proof}
+\end{proposition}
+
+Note that the $L^\infty$ bound in (\ref{3.2}) holds every Lipschitz nonlinear function $f$ when $\Omega$ is a convex domain (for $n\geq 2$). The precise statement is the following:
+\begin{proposition}
+Let $f$ be any locally Lipschitz function and let $\Omega\subset\mathbb{R}^n$ be a smooth bounded domain. Let $u$ be any positive classical solution of (\ref{pde}).
+
+If $\Omega$ is convex, then there exist positive constants $\rho$ and $\gamma$ depending only on the domain $\Omega$ such that for every $\Omega$ with $\mathrm{dist}(x,\partial \Omega) <\rho$, there exists a set $I_x\subset \Omega$ with the following properties:
+\begin{equation}\label{3.4}
+|I_x|\geq \gamma \mbox{ and }  u(x) \leq u(y)  \mbox{ for all } y\in I_x.
+\end{equation}
+As a consequence, 
+\begin{equation}\label{3.5}
+\|u\|_{L^\infty(\Omega_{\rho})} \leq \frac{1}{\gamma} \|u\|_{L^1(\Omega)}  \mbox{ where } \Omega_{\rho}=\{x\in \Omega \colon \mathrm{dist}(x,\partial \Omega)<\rho \}.
+\end{equation}
+If $\Omega$ is not convex but we assume that $n=2$ and $f\geq 0$, then (\ref{3.5}) also holds for some constants $\rho$ and $\gamma$ depending only on $\Omega$.
+
+\begin{proof}
+Use the Method of Moving Plane
+\end{proof}
+\end{proposition}
+\begin{lemma}
+If $u$ is solution to 
+$$\begin{cases}-\Delta u=f(u) \geq 0  &\mbox{ in } \Omega,\\
+ u= 0 & \mbox{ on } \Omega.\\
+ \end{cases},$$
+ then 
+ \begin{equation}\label{uestimate}
+ \frac{u}{\delta} \geq c\|f(u)\|_{L_{\delta}^1(\Omega)}   \mbox{ in } \Omega
+ \end{equation}
+ for some positive constants $c$ and $\rho$ depending only on $\Omega$. Note that 
+ $$\|f(u)\|_{L_{\delta}^1(\Omega)} =\int_{\Omega} f(u) \delta dx.$$
+ \begin{proof}
+ \begin{itemize}
+ \item \emph{Step 1}: 
+ For any compact set $K\subset \Omega$, we show that 
+ \begin{equation}\label{compact}
+ u(x)\geq c\int_{\Omega} f(u) \delta   \mbox{ for all } x\in K
+ \end{equation}
+ where $c$ is a positive constant depending only on $K$ and $\Omega$.
+ 
+ To prove (\ref{compact}), we first define $\rho:=\frac{\mathrm{dist}(K,\partial \Omega)}{2}$ and then take $n$ balls of radius $\rho$ such that $$K\subset B_{\rho}(x_1)\cup\cdots\cup B_{\rho} (x_m)\subset \Omega.$$ This is possible by compactness of $K$.
+Let $\xi_1, \xi_2,\cdots, \xi_n$ be the solution of 
+$$\begin{cases} -\Delta \xi_i=\chi_{B_{\rho} (x_i)} & \mbox{ in }  \Omega,\\
+\xi_i =0   & \mbox{ on } \partial \Omega\\
+\end{cases}$$
+where $\chi_A$ denotes the characteristic function of $A$. The Hopf boundary lemma implies that there exist $c>0$ such that 
+$$\xi_i(x) \geq c\delta(x) \mbox{ for all } x\in \Omega, 1\leq i\leq m.$$
+Here and in the rest of the proof, $c$ denotes various constants depending only on $K$ and $\Omega$. 
+
+Let $x\in K$, take a ball $B_{\rho}(x_i)$ containing $x$ , then
+$$B_{\rho}(x_i) \subset B_{2\rho }(x)\subset \Omega.$$
+\begin{align*}
+u(x)\geq & \frac{1}{|B_{2\rho}(x)|} \int_{|B_{2\rho} (x)|} u(x) \mbox{ (By Mean Value Formula)}\\
+{}=&c \int_{B_{2\rho} (x)} u(x)\\
+{}\geq & c \int_{B_{\rho} (x_i)}u(x)\\
+{}=&c\int_{\Omega} u(-\Delta \xi_i) \\
+{}=&c\int_{\Omega} f(u) \xi_i\\
+{}\geq& c\int_{\Omega} f(u) \delta 
+\end{align*}
+\item \emph{Step 2:}
+Fix a smooth compact set $K\subset \Omega$, by (\ref{compact}), 
+$$u\geq c\int_{\Omega} f(u) \delta \mbox { in } K$$
+so that it suffices to prove (\ref{compact}) for $x\in\Omega\setminus K.$
+
+Let $w$ be solution of $$\begin{cases} -\Delta w=0 &\mbox{ in } \Omega\setminus K\\
+w=0 & \mbox{ on } \partial\Omega\\
+w=1 & \mbox{ on } \partial K\\
+\end{cases}$$
+
+Then Hopf lemma implies that $w(x)\geq c\delta(x)$ for all $x\in \Omega\setminus K$.
+
+$u$ is a superharmonic and $u((x)\geq c\left(\int_{\Omega} f\delta \right) w(x)\geq c\left(\int_{\Omega} f\delta \right)\delta(x)\mbox{ for } x\in \Omega\setminus K.$
+This completes the proof.
+ \end{itemize}
+ \end{proof}
+\end{lemma}
+Now we are ready to prove Theorem 2:
+\begin{proof}
+Assume $f\geq 0$ and $\Omega$ is convex in the case $n\in\{3,4\}$. Let $u_k$ be a sequence of classical positive semistable solutions of (\ref{pde}) converging to $u$ in $L^1(\Omega)$.
+
+For $x\in \Omega$ and $v\colon\Omega\to \mathbb{R}$, define
+$$\delta(x):=\mathrm{dist}(x,\partial \Omega) \mbox{ and } \|v\|_{L_{\delta}^1(\Omega}=\|v\delta\|_{L^1(\Omega)}.$$
+
+By Proposition 2, 
+\begin{equation}\label{prop2results}
+\|u_k\|_{L^{\infty}(\Omega_\rho)}\leq \frac{1}{\gamma} \|u_k\|_{L^1(\Omega)} \to \frac{1}{\gamma}\|u\|_{L^1(\Omega},
+\end{equation}
+as $k\to\infty$ where $\rho$ and $\gamma$ are positive constants depending only on $\Omega$.
+
+By Lemma 1, we know that 
+\begin{equation}\label{lemmaresults}
+\frac{u_k}{\delta}\geq c\|f(u_k)\|_{L_{\delta}^1(\Omega)}  \mbox{ in } \Omega
+\end{equation}
+for some positive $c$ depending only on $\Omega$.
+
+Multiply (\ref{pde}) (with $u$ replaced by $u_k$) by the first Dirichlet eigenfucntion of $-\Delta$ in $\Omega$ and integrate twice by parts:
+
+$$\int -\Delta u_k \phi =\int f(u_k) \phi$$
+$$\int -u_k\Delta \phi =\int f(u_k) \phi$$
+$$\int -\lambda_1 u_k\phi =\int f(u_k) \phi$$
+
+We deduce that $\|u_k\|_{L_{\delta}^1(\Omega)}$ and $\|f(u_k)\|_{L_{\delta}^1(\Omega)}$ are comparable up to multiplicative constants depending only on $\Omega$.
+
+Similarly, by multiplying (\ref{pde}) by the solution $w$ of 
+$$\begin{cases} -\Delta w=1 &\mbox{ in } \Omega,\\
+w=0  &\mbox{ on } \partial \Omega .\end{cases}$$
+
+\begin{equation}\label{w}
+\int u_k=\int f(u_k) w
+\end{equation}
+we also deduce that $\|u_k\|_{L^1(\Omega)}$ is comparable to $\|u_k\|_{L_{\delta}^1(\Omega)}$ and $\|f(u_k)\|_{L_{\delta}^1(\Omega)}$.
+
+Recall that $\|u_k\|_{L^1(\Omega)}\to \|u\|_{L^1(\Omega)}>0.$ The RHS of (\ref{lemmaresults}) is bounded below by a positive constant indepedent of $k$.
+As a consequence of this lower bound and of (\ref{prop2results}), Proposition 1 gives a uniform $L^\infty(\Omega)$ estimated for all $u_k$. Letting $k\to\infty, u\in L^{\infty}(\Omega)$. Part (i) of Theorem 2 is thus proved.
+
+To prove part(ii), we simply take more precise the constants in (\ref{prop2results}) and (\ref{lemmaresults}). Since we now assume $f\geq c_1>0$,  from (\ref{w}) $u_k\geq c_1 w \geq c_1 c\delta=c_1 c\mathrm{dist} (\cdot,\partial\Omega)$
+
+Finally, multiply (\ref{pde}) ($u_k$ for $u$ ) by the first Dirichlet eigenfunction $-\Delta$ in $\Omega$ and integrate twice by parts. Using the fact taht $f(s)\geq \mu s-c_2$ for all $s, \mu >\lambda_1$,
+$$\int -\Delta u_k \phi =\int f(u_k) \phi$$
+$$\int -u_k\Delta \phi =\int f(u_k) \phi$$
+$$\int -\lambda_1 u_k\phi =\int f(u_k) \phi$$
+$$\int -\lambda_1 u_k\phi \geq\int (\mu u_k-c_2) \phi$$
+$$\int (\mu -\lambda_1) u_k\phi \leq\int c_2 \phi$$
+
+This shows that $\|u_k\|_{L_{\delta}^{1}(\Omega)} \leq \bar{C}(\Omega,\mu,c_2)$ and also for $\|u_k\|_{L^1(\Omega)}$. By (\ref{prop2results}),
+$$\|u\|_{L^\infty(\Omega_{\rho}} \leq \frac{1}{\gamma} \bar{C}(\Omega,\mu,c_2)$$.
+Then the result of (ii) of Proposition 2 gives the desired result for Theorem 2.
+\end{proof}
+
+The main application of Theorem 1 is the following PDE:
+$$\begin{cases} -\Delta u=\lambda g(u) & \mbox{ in } \Omega,\\
+u\geq 0 &\mbox{ in } \Omega,\\
+u= 0 &\mbox{ on } \partial\Omega,\\
+\end{cases}$$
+where $\Omega\subset\mathbb{R}^n$ is smooth bounded domain, $n\geq 2, \lambda\geq 0$ and the nonlinearity $g\colon[-,\infty) \to\mathbb{R}$ satisfies 
+\begin{equation}\label{g}
+g\in C^1, \mbox{ nondecreasing } g(0).0, \mbox {and } \lim_{u\to\infty}\frac{g(u)}{u}=\infty.
+\end{equation}
+\begin{theorem}
+Let $g$ satisfy (\ref{g}) and $\Omega\subset\mathbb{R}^n$ is a smooth bounded domain. Assume that $2\leq n\leq 4$ and $\Omega$ is convex in the case $n\in\{3,4\}$. Let $u^{\star}$ be the extremal solution of the above problem, then $u^{\star}\in L^\infty(\Omega).$
+\begin{proof}
+\begin{enumerate}
+\item \emph{Step 1: } 
+
+We extend $g$ in $C^1$ manner to all of $\mathbb{R}$ with $g$ non-decreasing and $g\geq g(0)/2$ in $\mathbb{R}$. Recall that the extremal solution $u^{\star}$ in the increasing $L^1$ limit as $\lambda\to\lambda^{\star}$, of the minimal solutions $u_\lambda$ of the eigenvalue problem. In addition, for $\lambda<\lambda^{\star},$ $u_\lambda$ is $C^2$-semistable solution of the eigenvalue problem.
+
+\item \emph{Step 2:}
+
+If $g$ is $C^\infty$, we simply apply part (ii) of Theorem 2 with $f=\lambda g$ for $\lambda^{\star}/2<\lambda^{\star}$. Using that $g$ satisfies (\ref{g}), and $f=\lambda g$, we know that $$f(s)\geq \frac{\lambda g(0)}{2}=c_1>0 \mbox{ and } f(s)=\lambda g(s) \geq \mu s-c_2.$$
+
+By Theorem 2, $\|u_\lambda\|_{L^{\infty}(\Omega)}$  are uniformly bounded in $\lambda$. Letting, $\lambda\to\lambda^{\star}$, $u^{\star}\in L^{\infty}(\Omega).$
+
+\item \emph{Step 3:}
+If $g\in C^1$ but not $C^\infty$, we use mollifier. Let $\rho_k$ be a $C^\infty$ mollifier with support in $(0,1/k)$ of the form 
+$$\rho_k(\beta)=k\rho(k\beta).$$
+We replace $g$ by 
+$$g_k(s)=\int_{s-1/k}^s g(\tau)\rho_k(s-\tau) d\tau =\int _{0}^1 g(s-\beta/k)\rho (\beta) d\beta.$$
+
+For all $k$, we have $g_k\leq g_{k+1}\leq g$ in $\mathbb{R}$. $g_k$ is $C^\infty$, nondecreasing, and satisfies (\ref{g}).
+
+Since $g(u^\star)\geq g_k(u^\star)$, $u^\star$ is a super -solution to 
+$$\begin{cases} -\Delta u=\lambda g_k(u) & \mbox{ in } \Omega,\\
+u\geq 0 &\mbox{ in } \Omega,\\
+u= 0 &\mbox{ on } \partial\Omega.\\
+\end{cases}$$
+By the monotone iteration procedure, the extremal parameter for $g_k$, $\lambda_k^\star$ satisfies $\lambda^\star\leq \lambda_{k}^{\star}.$ Hence $u_{\lambda^{\star} -1/k}^k$ is a classical solution to $$-\Delta u=(\lambda^{\star} -1/k)g_k.$$
+Thus, we can apply Theorem 1.2 with $f=\lambda g_k$ and $\lambda=\lambda^{\star}-1/k $ to obtain an $L^\infty(\Omega)$ bound for $u_{\lambda^{\star}-1/k}^{k}$ independent of $k$. Note that $u_{\lambda^{\star}-1/k}^{k}\leq u_{\lambda^{\star}-1/(k+1)}^{k}$  and that , since $g_l\leq g_{k+1}\leq g,$ $ u_{\lambda^{\star}-1/(k+1)}^{k}\leq u_{\lambda^{\star}-1/(k+1)}^{k+1}\leq u_{\lambda^{\star}}=u^\star.$ Thus, $u_{\lambda^{\star}-1/k}^k$ increases in $L^1(\Omega)$ towards a solution of  $-\Delta u=\lambda^\star g(u)$ smaller or equal to $u^\star$, and hence identically $u^\star$. From the $L^\infty(\Omega)$ bound for $u_{\lambda^\star-1/k}^k$ independent of $k$, we conclude that $u^\star\in L^\infty(\Omega).$
+\end{enumerate}
+\end{proof}
+\end{theorem}
+
+\section{Open Problems and Future Work}
+\begin{enumerate}
+\item Theorem 3 for nonconvex domains
+\item The boundedness of $u^{\star}$ in the dimensions $5\leq n\leq 9$ 
+\end{enumerate}
+\end{document}
